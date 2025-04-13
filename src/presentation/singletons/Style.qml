@@ -1,0 +1,705 @@
+pragma Singleton
+
+import QtQuick
+import QtCore
+import Librumx.controllers
+import Librumx.icons
+import Librumx.globals
+import Librumx.globalSettings
+Item {
+    id: styleSheet
+
+    // Buttons
+    property color colorFocusedButtonText
+    property color colorUnfocusedButtonText
+    property color colorReadingViewButtonBackground
+    property color colorLightReadingViewButtonBackground
+
+    // Texts
+    property color colorPlaceholderText
+    property color colorLightText
+    property color colorNoImageLabel
+    property color colorGreenText
+    property color colorText
+    property color colorErrorText
+    property color colorTitle
+    property color colorLightTitle
+    property color colorMatteTitle
+    property color colorBannerText
+    property color colorLinkText
+
+    // Subtitless
+    property color colorSubtitle
+    property color colorPageSubtitle
+
+    // Input
+    property color colorReadOnlyInputText
+    property color colorBaseInputText
+    property color colorLightInputText
+
+    // Color tones
+    property color colorBasePurple
+    property color colorLightPurple
+    property color colorRed
+
+    // Highlight
+    property color colorLightHighlight
+    property color colorHighlight
+    property color colorHoverHighlight
+
+    // Separators
+    property color colorSeparator
+    property color colorDarkSeparator
+    property color colorLightSeparator
+
+    // Backgrounds
+    property color colorReadingToolbarBackground
+    property color colorGreenBackground
+    property color colorBookImageBackground
+    property color colorErrorBackground
+    property color colorContainerBackground
+    property color colorToolBackground
+    property color colorToolListItemBackground
+    property color colorPopupBackground
+    property color colorBookBackground
+    property color colorReadingViewBackground
+    property color colorAuthenticationPageBackground
+    property color colorPageBackground
+    property color colorControlBackground
+    property color colorSettingsSidebarBackground
+    property color colorBannerBackground
+    property color colorTransparentHighlight
+
+    // Borders
+    property color colorGreenBorder
+    property color colorRecordActiveBorder
+    property color colorBookBorder
+    property color colorButtonBorder
+    property color colorCheckboxBorder
+    property color colorContainerBorder
+    property color colorErrorBorder
+    property color colorToolListItemBorder
+
+    // Alerts
+    property color colorAlertSuccessBackground: "#EAFBE7"
+    property color colorAlertErrorBackground: "#FCECEA"
+    property color colorAlertInfoBackground: "#F0F0FF"
+    property color colorAlertSuccessBorder
+    property color colorAlertErrorBorder
+    property color colorAlertInfoBorder
+    property color colorAlertClose
+
+    // Other
+    property color colorDropArea
+    property color colorPopupDim
+    property color colorBookCoverDim
+    property color colorDefaultProfilePicture
+    property color colorTextSelection
+    property color colorScrollBarHandle
+    property color colorDefaultFolderIcon
+    property color colorFolderIconSelection
+
+    state: (SettingsController.appearanceSettings.Theme
+            === undefined ? GlobalSettings.theme : SettingsController.appearanceSettings.Theme)
+
+    states: [
+        State {
+            name: "Light"
+
+            // Buttons
+            PropertyChanges {
+                target: styleSheet
+                colorFocusedButtonText: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorUnfocusedButtonText: "#666687"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorReadingViewButtonBackground: "#D2D2D2"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightReadingViewButtonBackground: "#EDEDED"
+            }
+
+            // Texts
+            PropertyChanges {
+                target: styleSheet
+                colorPlaceholderText: "#8E8EA9"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightText: "#666687"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorNoImageLabel: "#737373"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorGreenText: "#5CB176"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorText: "#32324D"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorErrorText: "#F25E42"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorTitle: "#32324D"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightTitle: "#7E7E89"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorMatteTitle: "#545460"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBannerText: "#F6F6F9"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLinkText: "#246CA0"
+            }
+
+            // Subtitless
+            PropertyChanges {
+                target: styleSheet
+                colorSubtitle: "#8A8AA0"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorPageSubtitle: "#666687"
+            }
+
+            // Input
+            PropertyChanges {
+                target: styleSheet
+                colorReadOnlyInputText: "#666687"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBaseInputText: "#32324D"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightInputText: "#666687"
+            }
+
+            // Color tones
+            PropertyChanges {
+                target: styleSheet
+                colorBasePurple: "#946BDE"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightPurple: "#D9D8FF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorRed: "#D84B4D"
+            }
+
+            // Highlight
+            PropertyChanges {
+                target: styleSheet
+                colorLightHighlight: "#F0F0FF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorHighlight: "#EEE9F1"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorHoverHighlight: "#F6F6F9"
+            }
+
+            // Separators
+            PropertyChanges {
+                target: styleSheet
+                colorSeparator: "#EAEAEF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorDarkSeparator: "#DCDCE4"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightSeparator: "#F6F6F9"
+            }
+
+            // Backgrounds
+            PropertyChanges {
+                target: styleSheet
+                colorReadingToolbarBackground: "#EDEDED"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorGreenBackground: "#EAFBE7"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBookImageBackground: "#DCDCE4"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorErrorBackground: "#FDEDE8"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorContainerBackground: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorToolBackground: "#F6F6F9"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorToolListItemBackground: "#D2D2D2"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorPopupBackground: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBookBackground: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorReadingViewBackground: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAuthenticationPageBackground: "#EFEFEF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorPageBackground: "#F6F6F9"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorControlBackground: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorSettingsSidebarBackground: "#F6F6F9"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBannerBackground: "#9861BE"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorTransparentHighlight: "#424242"
+            }
+
+            // Borders
+            PropertyChanges {
+                target: styleSheet
+                colorGreenBorder: "#C6F0C2"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorRecordActiveBorder: "#E59395"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBookBorder: "#E0E0DE"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorButtonBorder: "#DCDCE4"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorCheckboxBorder: "#C0C0CF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorContainerBorder: "#DCDCE4"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorErrorBorder: "#E87964"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorToolListItemBorder: "#C1C1C1"
+            }
+
+            // Alerts
+            PropertyChanges {
+                target: styleSheet
+                colorAlertSuccessBackground: "#EAFBE7"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertErrorBackground: "#FCECEA"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertInfoBackground: "#F0F0FF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertSuccessBorder: "#C6F0C2"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertErrorBorder: "#F5C0B8"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertInfoBorder: "#D9D8FF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertClose: "#434344"
+            }
+
+            // Other
+            PropertyChanges {
+                target: styleSheet
+                colorDropArea: "#F6F6F9"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorPopupDim: "#aa32324D"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBookCoverDim: "#32324D"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorDefaultProfilePicture: "#946BDE"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorTextSelection: "#21BDAC"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorScrollBarHandle: "#999999"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorDefaultFolderIcon: "#78788E"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorFolderIconSelection: "#67677B"
+            }
+        },
+        State {
+            name: "Dark"
+
+            // Buttons
+            PropertyChanges {
+                target: styleSheet
+                colorFocusedButtonText: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorUnfocusedButtonText: "#C8C8D8"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorReadingViewButtonBackground: "#3A3A3A"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightReadingViewButtonBackground: "#3D3D3D"
+            }
+
+            // Texts
+            PropertyChanges {
+                target: styleSheet
+                colorPlaceholderText: "#C8C8C8"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightText: "#CACACF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorNoImageLabel: "#737373"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorGreenText: "#5CB176"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorText: "#D5D5D5"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorErrorText: "#DC4C31"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorTitle: "#CBCBCB"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightTitle: "#CBCBCB"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorMatteTitle: "#B6B6C8"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBannerText: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLinkText: "#52b6ff"
+            }
+
+            // Subtitless
+            PropertyChanges {
+                target: styleSheet
+                colorSubtitle: "#E5E5EF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorPageSubtitle: "#C4C4C4"
+            }
+
+            // Input
+            PropertyChanges {
+                target: styleSheet
+                colorReadOnlyInputText: "#C1C1C1"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBaseInputText: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightInputText: "#E2E2E2"
+            }
+
+            // Color tones
+            PropertyChanges {
+                target: styleSheet
+                colorBasePurple: "#946BDE"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightPurple: "#332B37"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorRed: "#CD4D34"
+            }
+
+            // Highlight
+            PropertyChanges {
+                target: styleSheet
+                colorLightHighlight: "#3F3F49"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorHighlight: "#3E3E48"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorHoverHighlight: "#3C3C3C"
+            }
+
+            // Separators
+            PropertyChanges {
+                target: styleSheet
+                colorSeparator: "#434344"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorDarkSeparator: "#454547"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorLightSeparator: "#3B3B3B"
+            }
+
+            // Backgrounds
+            PropertyChanges {
+                target: styleSheet
+                colorReadingToolbarBackground: "#2D2D2D"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorGreenBackground: "#204619"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBookImageBackground: "#454545"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorErrorBackground: "#382E2C"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorContainerBackground: "#2C2C2C"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorToolBackground: "#343534"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorToolListItemBackground: "#222222"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorPopupBackground: "#2C2C2C"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBookBackground: "#2C2C2C"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorReadingViewBackground: "#FFFFFF"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAuthenticationPageBackground: "#212121"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorPageBackground: "#212121"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorControlBackground: "#2E2E2E"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorSettingsSidebarBackground: "#262626"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBannerBackground: "#583771"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorTransparentHighlight: "#FFFFFF"
+            }
+
+            // Borders
+            PropertyChanges {
+                target: styleSheet
+                colorGreenBorder: "#4B7947"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorRecordActiveBorder: "#973B3E"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBookBorder: "#3C3C40"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorButtonBorder: "#55555A"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorCheckboxBorder: "#6C6C73"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorContainerBorder: "#48484D"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorErrorBorder: "#CB4C34"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorToolListItemBorder: "#1E1E1E"
+            }
+
+            // Alerts
+            PropertyChanges {
+                target: styleSheet
+                colorAlertSuccessBackground: "#2F452B"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertErrorBackground: "#442B29"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertInfoBackground: "#393956"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertSuccessBorder: "#395837"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertErrorBorder: "#50342F"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertInfoBorder: "#474666"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorAlertClose: "#D5D5D5"
+            }
+
+            // Other
+            PropertyChanges {
+                target: styleSheet
+                colorDropArea: "#313131"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorPopupDim: "#aa3F3F52"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorBookCoverDim: "#0C0C0F"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorDefaultProfilePicture: "#946BDE"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorTextSelection: "#01584E"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorScrollBarHandle: "#999999"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorDefaultFolderIcon: "#989898"
+            }
+            PropertyChanges {
+                target: styleSheet
+                colorFolderIconSelection: "#E2E2E2"
+            }
+        }
+    ]
+
+    // Change icons
+    onStateChanged: Icons.setState(state)
+    Component.onDestruction: GlobalSettings.theme = styleSheet.state
+}

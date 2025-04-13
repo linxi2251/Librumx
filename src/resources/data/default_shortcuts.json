@@ -1,0 +1,23 @@
+{ 
+    "MoveUp": "Up",
+    "MoveDown": "Down",
+    "NextPage":"Right",
+    "PreviousPage": "Left",
+    "Search": "Ctrl+F",
+    "StartFullScreenMode": "Ctrl+Alt+F",
+    "ExitFullScreenMode": "ESC",
+    "GoToHome": "Ctrl+Alt+H",
+    "ZoomIn": "Ctrl++",
+    "ZoomOut": "Ctrl+-",
+    "OpenChapters": "Ctrl+Tab",
+    "OpenBookmarks": "Ctrl+B",
+    "StartOfDocument": "Ctrl+Home",
+    "EndOfDocument": "Ctrl+End",
+    "PrintPage": "Ctrl+P",
+    "CreateBookmarkHere": "B",
+    "ToggleSpeaking": "F5",
+    "ReloadApplication": "Ctrl+R",
+    "AddBook": "Ctrl+N",
+    "CreateHighlight": "H",
+    "RemoveHighlight": "Backspace"
+}
