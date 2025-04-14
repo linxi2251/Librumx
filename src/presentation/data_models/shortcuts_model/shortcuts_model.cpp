@@ -49,7 +49,7 @@ QHash<int, QByteArray> ShortcutsModel::roleNames() const
 void ShortcutsModel::refreshRow(QString key)
 {
     int row = 0;
-    for(const QString& item : m_data.keys())
+    for(const QString &item : m_data.keys())
     {
         if(item == key)
         {

@@ -1,8 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Librum.style
-import Librum.icons
+import Librumx.style
+import Librumx.icons
 
 
 /**

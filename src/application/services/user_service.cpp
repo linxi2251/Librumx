@@ -75,7 +75,7 @@ void UserService::loadUser(bool rememberUser)
 
 void UserService::deleteUser()
 {
-    // If the user has automatic login enabled, delete the data to avoid
+    // If the user has automatic loginPage enabled, delete the data to avoid
     // logging into a non-existing account.
     auto userData = utility::AutomaticLoginHelper::tryAutomaticUserLoading();
     if(userData.has_value() && userData.value().email == m_user.getEmail())
@@ -341,7 +341,7 @@ bool UserService::renameTag(const QUuid& uuid, const QString& newName)
 void UserService::proccessUserInformation(const domain::entities::User& user,
                                           bool success)
 {
-    // Avoid storing data for logged out users by verifying login status before
+    // Avoid storing data for logged out users by verifying loginPage status before
     // applying data, else their data might be in memory even though logged out.
     if(!userIsLoggedIn() || !success)
     {

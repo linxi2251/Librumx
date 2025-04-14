@@ -1,11 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import CustomComponents
-import Librum.style
-import Librum.fonts
+import Librumx.style
+import Librumx.fonts
 import "ComboBoxLogic.js" as Logic
-
 Popup {
     id: root
     property string selectedContent

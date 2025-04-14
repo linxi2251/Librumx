@@ -4,26 +4,33 @@ import Librumx.controllers
 import Librumx.style
 import Librumx.Components
 
-import "views/login"
+import "views/loginPage"
 
 ApplicationWindow {
-  id: rootWindow
-  width: 640
-  height: 480
+  id: baseRoot
+  property int defaultMinWidth: 650
+  property int sidebarOpenedMinWidth: 810
+  property int readingPageMinWidth: 550
+  property bool notifyAboutUpdates: true
+  property bool rightAlign: AppInfoController.language === "العربية"
+  property bool externalBookMode: false
+
+  // Only initalize once at the start
+  // Component.onCompleted: externalBookMode = externalBook
+
+  minimumHeight: 400
+  minimumWidth: 650
   visible: true
-  title: qsTr("Hello World")
+  visibility: Window.Maximized
+  title: qsTr("Librum - Your ebook reader")
 
-  color: Style.colorBasePurple
-
-  Component.onCompleted: {
-    console.log(SettingsController.shortcuts)
-    for (let item in SettingsController.shortcuts.keys()) {
-      console.log(item)
-    }
+  Shortcut {
+      sequence: SettingsController.shortcuts.ReloadApplication
+      // onActivated: internal.reloadApplication()
   }
 
-  MLogo {
-    anchors.centerIn: parent
+  MLoginPage {
+    anchors.fill: parent
   }
 
 }

@@ -12,6 +12,9 @@ get_target_property(DOMAIN_INCLUDES domain INTERFACE_INCLUDE_DIRECTORIES)
 add_subdirectory(application/)
 get_target_property(APPLICATION_INCLUDES application INTERFACE_INCLUDE_DIRECTORIES)
 
+add_subdirectory(infrastructure/)
+get_target_property(INFRASTRUCTURE_INCLUDES infrastructure INTERFACE_INCLUDE_DIRECTORIES)
+
 
 add_subdirectory(adapters/)
 get_target_property(ADAPTERS_INCLUDES adapters INTERFACE_INCLUDE_DIRECTORIES)
@@ -21,17 +24,18 @@ add_subdirectory(presentation)
 
 # Configure and add subdirectories
 # Building
-set(PRO_SOURCES
+set(PROJ_SOURCES
         main.cpp
+        dependency_injection.hpp
         message_handler.hpp
         resources.rc
 )
-qt_add_resources(PRO_SOURCES
+qt_add_resources(PROJ_SOURCES
         fonts.qrc
         resources.qrc
 )
 qt_add_executable(${PROJECT_NAME}
-        ${PRO_SOURCES}
+        ${PROJ_SOURCES}
 )
 
 
@@ -50,6 +54,7 @@ target_link_libraries(${PROJECT_NAME}
         adapters
         domain
         application
+        infrastructure
         presentation
         presentationplugin
         Qt6::Quick

@@ -62,9 +62,6 @@ add_subdirectory(libs/rapidfuzz-cpp)
 add_subdirectory(src/)
 
 
- include(GNUInstallDirs)
- install(TARGETS ${PROJECT_NAME}
-     BUNDLE DESTINATION .
-     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
- )
+if(WIN32)
+    configure_file("${PROJECT_SOURCE_DIR}/unzip_and_move.bat" "${PROJECT_BINARY_DIR}/unzip_and_move.bat" COPYONLY)
+endif()

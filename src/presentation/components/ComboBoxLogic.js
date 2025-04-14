@@ -1,4 +1,3 @@
-.pragma library
 /**
   If multi select is enabled, multiple items can be selected, thus a list must
   be managed, which knows of all selected items to prevent selecting the same

@@ -99,8 +99,10 @@ Item {
     property color colorDefaultFolderIcon
     property color colorFolderIconSelection
 
-    state: (SettingsController.appearanceSettings.Theme
-            === undefined ? GlobalSettings.theme : SettingsController.appearanceSettings.Theme)
+    // state: (SettingsController.appearanceSettings.Theme
+    //         === undefined ? GlobalSettings.theme : SettingsController.appearanceSettings.Theme)
+
+    state: "Dark"
 
     states: [
         State {

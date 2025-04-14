@@ -1,9 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Librum.style
-import Librum.icons
-import Librum.fonts
+import Librumx.style
+import Librumx.icons
+import Librumx.fonts
 
 Item {
     id: root

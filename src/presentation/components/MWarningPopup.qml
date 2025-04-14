@@ -1,10 +1,10 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import CustomComponents
-import Librum.style
-import Librum.icons
-import Librum.fonts
+import Librumx.Components
+import Librumx.style
+import Librumx.icons
+import Librumx.fonts
 
 Popup {
     id: root
@@ -102,7 +102,7 @@ Popup {
                             acceptedButtons: Qt.NoButton // Don't eat the mouse clicks
                             anchors.fill: parent
                             cursorShape: message.hoveredLink
-                                         != "" ? Qt.PointingHandCursor : Qt.ArrowCursor
+                                         !== "" ? Qt.PointingHandCursor : Qt.ArrowCursor
                         }
                     }
 

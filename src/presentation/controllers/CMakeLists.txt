@@ -1,19 +1,17 @@
-add_library(controllers
-        stdafx.h
-        interface/i_settings_controller.hpp
-)
+add_library(controllers)
 
 qt6_add_qml_module(controllers
         URI "${PROJECT_NAME}.controllers"
         RESOURCE_PREFIX /
         VERSION 1.0
         SOURCES
+        stdafx.h
+        interface/i_settings_controller.hpp
+        interface/i_app_info_controller.hpp
         settings_controller.hpp
         settings_controller.cpp
-#        shortcuts_model.hpp
-#        shortcuts_model.cpp
-#        shortcuts_proxy_model.cpp
-#        shortcuts_proxy_model.hpp
+        app_info_controller.hpp
+        app_info_controller.cpp
         OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/controllers
 )
 

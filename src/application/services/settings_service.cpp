@@ -148,7 +148,7 @@ void SettingsService::loadDefaultSettingsGroup(SettingGroups group)
     for(const auto& defaultSettingKey : defaultSettings.keys())
     {
         // Default settings are only loaded for settings which don't yet exist.
-        // E.g. First login, no settings exist, so default values are loaded.
+        // E.g. First loginPage, no settings exist, so default values are loaded.
         // Thus skip all settings which already exist.
         if(defaultSettingAlreadyExists(defaultSettingKey, group))
             continue;

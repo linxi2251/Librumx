@@ -7,6 +7,7 @@
 #include "message_handler.hpp"
 #include "settings_service.hpp"
 #include "settings_controller.hpp"
+#include "dependency_injection.hpp"
 void setupGlobalSettings();
 void setupFonts();
 using namespace presentation::controllers;
@@ -27,9 +28,42 @@ int main(int argc, char *argv[])
     setupFonts();
 
 
-    QQmlApplicationEngine engine;
 
-    SettingsController::s_instance = new SettingsController(new application::services::SettingsService());
+    // App Info Stack
+    auto *appInfoService =
+        config::diConfig().create<application::IAppInfoService *>();
+    auto appInfoController =
+        std::make_unique<AppInfoController>(appInfoService);
+    AppInfoController::s_instance = appInfoController.get();
+    // Settings Stack
+    auto *settingsService = config::diConfig().create<application::ISettingsService *>();
+    auto settingsController = std::make_unique<SettingsController>(settingsService);
+    SettingsController::s_instance = settingsController.get();
+
+    QQmlApplicationEngine engine;
+    QQuickStyle::setStyle("Basic");
+    appInfoController->setQmlApplicationEngine(&engine);
+
+    // Setup translations
+    QSettings settings;
+    auto storedLanguage = settings.value("language", QVariant("")).toString();
+    if(storedLanguage.isEmpty())
+    {
+        // If no language was specified in the settings, deduce the system language
+        const QStringList uiLanguages = QLocale::system().uiLanguages();
+        for(const QString& locale : uiLanguages)
+        {
+            const QString name = QLocale(locale).name();
+            if(appInfoController->switchToLanguage(name))
+            {
+                break;
+            }
+        }
+    }
+    else
+    {
+        appInfoController->switchToLanguage(storedLanguage);
+    }
 
     QObject::connect(
         &engine,

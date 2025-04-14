@@ -84,7 +84,7 @@ void AuthenticationService::processAuthenticationResult(const QString& token,
     }
     else
     {
-        // Store the login data if "rememberUser" was selected
+        // Store the loginPage data if "rememberUser" was selected
         if(m_rememberUser)
         {
             utility::AuthenticationData authData { m_tempEmail, token };

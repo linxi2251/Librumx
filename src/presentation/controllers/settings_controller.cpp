@@ -131,7 +131,7 @@ void SettingsController::initialiseSettings(ApplicationSettings settings)
         m_shortcutsMap.insert(elem.first, elem.second);
 
 
-    // Create the models with the new data
+    // Create the data_models with the new data
     m_shortcutsModel = std::make_unique<ShortcutsModel>(m_shortcutsMap);
     m_shortcutsProxyModel = std::make_unique<ShortcutsProxyModel>();
     m_shortcutsProxyModel->setSourceModel(m_shortcutsModel.get());
