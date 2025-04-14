@@ -147,11 +147,11 @@ endif()
 
 add_custom_target(mupdf
    # Build mupdf
-  # COMMAND ${CMAKE_COMMAND} -E env
-  #      ${ANDROID_COMPILERS}
-  #      "USE_SYSTEM_LIBJPEG=${USE_SYSTEM_LIBJPEG_VALUE}"
-  #      "USE_SONAME=no"
-  #      ${MUPDF_BUILD_COMMAND}
+   COMMAND ${CMAKE_COMMAND} -E env
+        ${ANDROID_COMPILERS}
+        "USE_SYSTEM_LIBJPEG=${USE_SYSTEM_LIBJPEG_VALUE}"
+        "USE_SONAME=no"
+        ${MUPDF_BUILD_COMMAND}
    # Copy mutool to the build directory
    COMMAND ${CMAKE_COMMAND} -E copy
         "${MUPDF_OUTPUT_DIR}/mutool${EXECUTABLE_EXTENSION}"

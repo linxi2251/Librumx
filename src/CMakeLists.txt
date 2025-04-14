@@ -34,22 +34,22 @@ qt_add_resources(PROJ_SOURCES
         fonts.qrc
         resources.qrc
 )
-qt_add_executable(${PROJECT_NAME}
+qt_add_executable(librumx
         ${PROJ_SOURCES}
 )
 
 
 # Set WIN32 for windows to avoid console getting opened on start on windows
 if (WIN32)
-    set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE true)
+    set_target_properties(librumx PROPERTIES WIN32_EXECUTABLE true)
 endif ()
 
-target_compile_definitions(${PROJECT_NAME}
+target_compile_definitions(librumx
         PRIVATE
         $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>
 )
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(librumx
         PRIVATE
         adapters
         domain

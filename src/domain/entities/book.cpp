@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QTimeZone>
 #include <algorithm>
 #include <cmath>
 
@@ -761,10 +762,10 @@ BookMetaData Book::getBookMetaDataFromJson(const QJsonObject& jsonBook)
     };
 
     // Specify that the dates are UTC, else Qt thinks its local time
-    metaData.addedToLibrary.setTimeSpec(Qt::UTC);
-    metaData.lastModified.setTimeSpec(Qt::UTC);
-    metaData.lastOpened.setTimeSpec(Qt::UTC);
-    metaData.coverLastModified.setTimeSpec(Qt::UTC);
+    metaData.addedToLibrary.setTimeZone(QTimeZone::utc());
+    metaData.lastModified.setTimeZone(QTimeZone::utc());
+    metaData.lastOpened.setTimeZone(QTimeZone::utc());
+    metaData.coverLastModified.setTimeZone(QTimeZone::utc());
 
     return metaData;
 }

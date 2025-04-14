@@ -41,6 +41,22 @@ if(WIN32)
     set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 
+# Create a set of warnings for unix systems
+if(UNIX)
+    string(CONCAT LIBRUM_WARNINGS "-Wall;-Wextra;-Wshadow;-Wnon-virtual-dtor;-Wold-style-cast;-Wcast-align;"
+                                  "-Wunused;-Woverloaded-virtual;-Wpedantic;-Wmissing-include-dirs;"
+                                  "-Wnull-dereference;-Wformat=2;-Wcast-qual;-Winit-self;"
+                                  "-Wswitch-enum;-Wunreachable-code;-Wredundant-decls;")
+
+    # GCC specific warnings
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU") # If compiler is GCC
+        list(APPEND LIBRUM_WARNINGS "-Wduplicated-cond")
+        list(APPEND LIBRUM_WARNINGS "-Wduplicated-branches")
+        list(APPEND LIBRUM_WARNINGS "-Wunsafe-loop-optimizations")
+        list(APPEND LIBRUM_WARNINGS "-Wlogical-op")
+        list(APPEND LIBRUM_WARNINGS "-Wunsafe-loop-optimizations")
+    endif()
+endif()
 
 # Create variables for coverage compiler and linker flags
 if(ENABLE_COVERAGE)

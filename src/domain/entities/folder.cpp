@@ -1,5 +1,7 @@
 #include "folder.hpp"
 #include <QJsonDocument>
+#include <QTimeZone>
+#include <utility>
 
 namespace domain::entities
 {
@@ -384,11 +386,11 @@ Folder Folder::fromJson(const QJsonObject& jsonFolder, Folder* parent)
     folder.setIndexInParent(indexInParent);
 
     auto lastModified = QDateTime::fromString(dateTime, dateTimeStringFormat);
-    lastModified.setTimeSpec(Qt::UTC);
+    lastModified.setTimeZone(QTimeZone::utc());
     folder.setLastModified(lastModified);
 
     auto jsonChildren = jsonFolder["children"].toArray();
-    for(const auto& jsonChild : jsonChildren)
+    for(const auto& jsonChild : std::as_const(jsonChildren))
     {
         // Recursively fill up all children
         auto childFolder = Folder::fromJson(jsonChild.toObject(), &folder);

@@ -1,7 +1,7 @@
 add_library(controllers)
 
 qt6_add_qml_module(controllers
-        URI "${PROJECT_NAME}.controllers"
+        URI "Librumx.controllers"
         RESOURCE_PREFIX /
         VERSION 1.0
         SOURCES
@@ -12,7 +12,7 @@ qt6_add_qml_module(controllers
         settings_controller.cpp
         app_info_controller.hpp
         app_info_controller.cpp
-        OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/controllers
+        OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Librumx/controllers
 )
 
 
